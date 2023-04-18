@@ -12,7 +12,7 @@ const ArticleCard = ({ article }) => {
 					{new Date(article.created_at)
 						.toUTCString()
 						.split(' ')
-						.slice(0, 3)
+						.slice(1, 4)
 						.join(' ')}{' '}
 					- votes: {article.votes}
 				</p>
