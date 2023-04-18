@@ -78,6 +78,10 @@ color: rgb(255, 0, 21);
   height: 1.5rem;
   font-weight: 600;
 }
+.side-bar-btn img {
+  width: 100%;
+  height: auto;
+}
 
 /* - Article Container - */
 .sort {
@@ -95,18 +99,42 @@ color: rgb(255, 0, 21);
 
 /* - Article Card - */
 .article-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin: 0.5rem 0.2rem 0.5rem 0.2rem;
   padding: 0.1rem;
   text-align: left;
   border: 2px solid rgb(99, 99, 99);
   background-color: rgb(163, 163, 163);
 }
+.article-card img {
+  width: 12rem;
+  height: auto;
+  margin: 0 0.3rem 0 0.3rem;
+}
+.article-card .text-content {
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .article-card img {
+    width: 100%;
+    height: auto;
+  }
+  .article-card .text-content {
+    font-size: 0.7rem;
+  }
+  .article-card button {
+    width: 5rem;
+    font-size: 0.6rem;
+  }
+}
 .article-card h4, .article-card h5 {
   margin: 0.25rem;
 }
 .article-card p {
   margin: 0.25rem;
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 .article-card button {
   margin-left: 0.25rem;

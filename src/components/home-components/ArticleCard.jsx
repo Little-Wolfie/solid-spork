@@ -1,16 +1,24 @@
-const ArticleCard = () => {
+const ArticleCard = ({ article }) => {
 	return (
 		<article className='article-card'>
-			<h4>Title</h4>
-			<h5>Author date created</h5>
-			<p>votes: 0</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste asperiores
-				rerum quia? Minima placeat adipisci dolorem dolor quod, rem nostrum
-				numquam, ab veritatis nulla pariatur ipsam cumque ipsum neque
-				blanditiis?
-			</p>
-			<button>Read more</button>
+			<img
+				src={article.article_img_url}
+				alt={article.topic}
+			/>
+			<div className='text-content'>
+				<h4>{article.title}</h4>
+				<h5>{article.author}</h5>
+				<p>
+					{new Date(article.created_at)
+						.toUTCString()
+						.split(' ')
+						.slice(0, 3)
+						.join(' ')}{' '}
+					- votes: {article.votes}
+				</p>
+				<p>{article.body.slice(0, 150)}</p>
+				<button>Read more</button>
+			</div>
 		</article>
 	);
 };

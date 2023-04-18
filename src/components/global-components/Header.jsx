@@ -12,7 +12,10 @@ const Header = ({ setIsSideBarOpen }) => {
 						});
 					}}
 				>
-					side
+					<img
+						src='/menu_icon.png'
+						alt='Menu button icon'
+					/>
 				</button>
 			</section>
 
