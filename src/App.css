@@ -1,10 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,200&family=Space+Mono&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-
 .App {
   text-align: center;
 }
 
+/* - Header - */
+header {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem 0 0.5rem;
+  border-bottom: 4px solid black;
+}
+.page-title {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  margin: 0.5rem 0 0.5rem 1.6rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+.page-title h1 {
+margin: 0 0.5rem 0 0.5rem;
+color: rgb(255, 0, 21);
+}
+.logo-link {
+  text-decoration: none;
+}
+.page-title img {
+  position: absolute;
+  width: 4rem;
+  top: 0;
+  transform: translate(-50%, -5%);
+  z-index: -1;
+  margin: 0;
+}
+.side-bar-btn button {
+  width: 2rem;
+  height: 2.5rem;
+  background-color: white;
+  border: 1px solid black;
+}
+.user-widget {
+  width: 4rem;
+  height: 2rem;
+  background-color: blue;
+}
+
+/* - Side bar - */
+.side-bar {
+  position: absolute;
+  width: 8rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transform: translateX(-8rem);
+  transition: transform 0.4s ease-out;
+  background-color: rgb(31, 31, 31, 0.8);
+}
+.side-bar.active {
+  transform: translateX(0);
+}
+.side-bar button {
+  margin: 0.5rem auto 0.5rem auto;
+  width: 6rem;
+  height: 1.5rem;
+  font-weight: 600;
+}
+.side-bar-btn img {
+  width: 100%;
+  height: auto;
+}
+
+/* - Article Container - */
+.sort {
+  margin-top: 2rem;
+}
+.article-container {
+  overflow: scroll;
+  margin: auto;
+  margin-top: 1rem;
+  width: 80vw;
+  height: 80vh;
+  border: 2px solid rgb(163, 163, 163);
+  background-color: rgb(192, 192, 192);
+}
+
+/* - Article Card - */
+.article-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+  padding: 0.1rem;
+  text-align: left;
+  border: 2px solid rgb(99, 99, 99);
+  background-color: rgb(163, 163, 163);
+}
+.article-card img {
+  width: 12rem;
+  height: auto;
+  margin: 0 0.3rem 0 0.3rem;
+}
+.article-card .text-content {
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .article-card img {
+    width: 100%;
+    height: auto;
+  }
+  .article-card .text-content {
+    font-size: 0.7rem;
+  }
+  .article-card button {
+    width: 5rem;
+    font-size: 0.6rem;
+  }
+}
+.article-card h4, .article-card h5 {
+  margin: 0.25rem;
+}
+.article-card p {
+  margin: 0.25rem;
+  font-size: 0.8em;
+}
+.article-card button {
+  margin-left: 0.25rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
