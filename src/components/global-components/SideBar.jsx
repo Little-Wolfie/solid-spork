@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SideBar = ({ isSideBarOpen }) => {
+const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
 	const navigate = useNavigate();
 	const sideBarRef = useRef();
 
@@ -15,14 +15,23 @@ const SideBar = ({ isSideBarOpen }) => {
 
 	useEffect(() => {
 		toggleSideBar();
-	}, [isSideBarOpen]);
+	});
 
 	return (
 		<section
 			className='side-bar'
 			ref={sideBarRef}
 		>
-			<button onClick={() => navigate('/articles')}>Articles</button>
+			<button
+				onClick={() => {
+					navigate('/articles');
+					setIsSideBarOpen(current => {
+						return !current;
+					});
+				}}
+			>
+				Articles
+			</button>
 			<button>Topics</button>
 			<button>Profile</button>
 			<button>Settings</button>

@@ -72,7 +72,7 @@ color: rgb(255, 0, 21);
   justify-content: flex-start;
   align-items: center;
   transform: translateX(-8rem);
-  transition: transform 0.4s ease-out;
+  transition: transform 0.2s ease-out;
   background-color: rgb(31, 31, 31, 0.8);
 }
 .side-bar.active {
@@ -205,4 +205,45 @@ color: rgb(255, 0, 21);
   width: 100%;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+}
+
+/* comments */
+.comments-container {
+  margin: 1.5rem 0.2rem 2rem 0.2rem;
+  font-size: 1rem;
+}
+.new-comment {
+  max-width: 50rem;
+  margin: 0 auto 1rem auto;
+  font-size: 0.8em;
+}
+.new-comment form {
+  width: fit-content;
+  height: fit-content;
+  margin: 1.5rem auto;
+}
+.new-comment textarea {
+  display: block;
+  margin: 1rem;
+}
+.comment-list {
+  margin: 1.5rem auto 0 auto;
+  max-width: 50rem;
+}
+.comment {
+  
+  margin: 0.2rem 0.2rem 1rem 0.2rem;
+  font-size: 0.8em;
+  text-align: left;
+}
+.comment span {
+  font-weight: 800;
+  font-size: 0.8em;
+}
+.comment h4, .comment h6, .comment p, .comment button {
+  margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+  font-size: 0.9em;
+}
+.new-comment, .comment-list, .comment {
+  border: 1px solid black;
 }

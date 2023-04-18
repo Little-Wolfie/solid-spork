@@ -12,7 +12,10 @@ function App() {
 	return (
 		<div className='App'>
 			<Header setIsSideBarOpen={setIsSideBarOpen} />
-			<SideBar isSideBarOpen={isSideBarOpen} />
+			<SideBar
+				isSideBarOpen={isSideBarOpen}
+				setIsSideBarOpen={setIsSideBarOpen}
+			/>
 
 			<Routes>
 				<Route
