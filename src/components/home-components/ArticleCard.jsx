@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 const ArticleCard = ({ article }) => {
+	const navigate = useNavigate();
+
 	return (
 		<article className='article-card'>
 			<img
@@ -17,7 +21,9 @@ const ArticleCard = ({ article }) => {
 					- votes: {article.votes}
 				</p>
 				<p>{article.body.slice(0, 150)}</p>
-				<button>Read more</button>
+				<button onClick={() => navigate(`/articles/${article.article_id}`)}>
+					Read more
+				</button>
 			</div>
 		</article>
 	);

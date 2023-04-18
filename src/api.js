@@ -10,6 +10,13 @@ const fetchArticles = async (sortQueryString = 'created_at') => {
 	return results.data.articles;
 };
 
+const fetchArticleById = async id => {
+	const results = await newsAPI.get(`/articles/${id}`);
+
+	return results.data.article;
+};
+
 export const api = {
 	fetchArticles,
+	fetchArticleById,
 };

@@ -4,6 +4,7 @@ import Header from './components/global-components/Header';
 import SideBar from './components/global-components/SideBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/page-components/Home';
+import Article from './components/page-components/Article';
 
 function App() {
 	const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -22,6 +23,11 @@ function App() {
 				<Route
 					path='/articles'
 					element={<Home />}
+				/>
+
+				<Route
+					path='/articles/:article_id'
+					element={<Article />}
 				/>
 			</Routes>
 		</div>

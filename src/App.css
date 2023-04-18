@@ -10,6 +10,12 @@
   text-align: center;
 }
 
+.divider-small {
+  margin: 0 auto 0 auto;
+  width: 75%;
+  border-bottom: 1px solid black;
+}
+
 /* - Header - */
 header {
   width: 100vw;
@@ -116,19 +122,6 @@ color: rgb(255, 0, 21);
 .article-card .text-content {
   font-size: 1rem;
 }
-@media (max-width: 600px) {
-  .article-card img {
-    width: 100%;
-    height: auto;
-  }
-  .article-card .text-content {
-    font-size: 0.7rem;
-  }
-  .article-card button {
-    width: 5rem;
-    font-size: 0.6rem;
-  }
-}
 .article-card h4, .article-card h5 {
   margin: 0.25rem;
 }
@@ -140,4 +133,76 @@ color: rgb(255, 0, 21);
   margin-left: 0.25rem;
   margin-top: 0.4rem;
   margin-bottom: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  /* article card */
+  .article-card img {
+    width: 100%;
+    height: auto;
+  }
+  .article-card .text-content {
+    font-size: 0.7rem;
+  }
+  .article-card button {
+    width: 5rem;
+    font-size: 0.6rem;
+  }
+
+  .article-card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* full article */
+  .article-content h2, .article-content h5, .article-content h4, .article-content p {
+  font-size: 0.8em;
+}
+}
+
+/* - Full Article - */
+.full-article-container {
+  margin-top: 1.5rem;
+}
+.article-content {
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+/* author and date/votes */
+.article-content h5, .article-content h4 {
+  display: inline;
+  text-align: left;
+}
+.author-date-upvote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.3rem auto 0.3rem auto;
+  max-width: 50rem;
+}
+/* all text elements */
+.article-content h2, .article-content h5, .article-content h4, .article-content p {
+  margin: 0.5rem;
+}
+/* body */
+.article-content p {
+  text-align: justify;
+  max-width: 50rem;
+  margin: 0.5rem auto 0.5rem auto;
+}
+/* title */
+.article-content h2 {
+  margin-bottom: 1rem;
+}
+.upvote-btn {
+  display: inline;
+  margin: 1rem;
+}
+.article-content img {
+  max-width: 50rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
