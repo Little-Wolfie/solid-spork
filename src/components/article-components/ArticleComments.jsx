@@ -4,7 +4,13 @@ import CommentCard from './CommentCard';
 
 const ArticleComments = ({ articleId }) => {
 	const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [newCommentInput, setNewCommentInput] = useState('');
+	const [isLoading, setIsLoading] = useState(true);
+
+	const handleNewCommentSubmit = e => {
+		e.preventDefault();
+		console.log(e.target.children[1].value);
+	};
 
 	useEffect(() => {
 		api.fetchArticleCommentsById(articleId).then(res => {
@@ -16,15 +22,17 @@ const ArticleComments = ({ articleId }) => {
 	return (
 		<section className='comments-container'>
 			<div className='new-comment'>
-				<form>
+				<form onSubmit={handleNewCommentSubmit}>
 					<label htmlFor='newComment'>Write a new Comment:</label>
 					<textarea
 						name='newComment'
 						id='newComment'
 						cols='30'
 						rows='4'
+						value={newCommentInput}
+						onChange={e => setNewCommentInput(e.target.value)}
 					></textarea>
-					<button>Submit</button>
+					<button type='submit'>Submit</button>
 				</form>
 			</div>
 

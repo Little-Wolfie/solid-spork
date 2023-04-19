@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-const Header = ({ setIsSideBarOpen }) => {
+const Header = ({ setIsSideBarOpen, user }) => {
+	console.log('user:', user);
 	return (
 		<header>
 			<section className='side-bar-btn'>
@@ -34,7 +35,11 @@ const Header = ({ setIsSideBarOpen }) => {
 			</Link>
 
 			<section className='user-widget'>
-				<div className='user-widget-container'></div>
+				<img
+					src={user.avatar_url}
+					alt='user profile picture'
+				/>
+				<p>{user.username}</p>
 			</section>
 		</header>
 	);

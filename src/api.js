@@ -28,9 +28,14 @@ const upvoteArticle = async (id, value) => {
 	});
 };
 
+const getUserData = async () => {
+	return await newsAPI.get(`/users`);
+};
+
 export const api = {
 	fetchArticles,
 	fetchArticleById,
 	fetchArticleCommentsById,
 	upvoteArticle,
+	getUserData,
 };
