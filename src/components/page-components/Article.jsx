@@ -17,14 +17,14 @@ const Article = () => {
 	}, [id]);
 
 	return (
-		<div className='content-container'>
+		<section className='content-container'>
 			<div className='article'>
 				{isLoading ? <h3>Loading...</h3> : <FullArticle article={article} />}
 			</div>
 			<div className='comments'>
-				{isLoading ? <h3>Loading...</h3> : <ArticleComments articleId={id} />}
+				<ArticleComments articleId={id} />
 			</div>
-		</div>
+		</section>
 	);
 };
 

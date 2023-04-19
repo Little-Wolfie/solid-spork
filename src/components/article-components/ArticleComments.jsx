@@ -4,10 +4,12 @@ import CommentCard from './CommentCard';
 
 const ArticleComments = ({ articleId }) => {
 	const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		api.fetchArticleCommentsById(articleId).then(res => {
 			setComments(res);
+			setIsLoading(false);
 		});
 	}, [articleId]);
 
@@ -28,14 +30,17 @@ const ArticleComments = ({ articleId }) => {
 
 			<div className='divider-small'></div>
 
-			<div className='comment-list'>
-				{comments.map(comment => (
-					<CommentCard
-						comment={comment}
-						key={comment.comment_id}
-					/>
-				))}
-			</div>
+			{isLoading ? (
+				<h3>Loading...</h3>
+			) : (
+				<ol className='comment-list'>
+					{comments.map(comment => (
+						<li key={comment.comment_id}>
+							<CommentCard comment={comment} />
+						</li>
+					))}
+				</ol>
+			)}
 		</section>
 	);
 };

@@ -18,14 +18,15 @@ const ArticleContainer = () => {
 			{isLoading ? (
 				<h3>Loading....</h3>
 			) : (
-				articles.map(article => {
-					return (
-						<ArticleCard
-							article={article}
-							key={article.article_id}
-						/>
-					);
-				})
+				<ol>
+					{articles.map(article => {
+						return (
+							<li key={article.article_id}>
+								<ArticleCard article={article} />
+							</li>
+						);
+					})}
+				</ol>
 			)}
 		</div>
 	);
