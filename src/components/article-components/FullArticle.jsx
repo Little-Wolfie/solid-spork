@@ -6,13 +6,13 @@ const FullArticle = ({ article }) => {
 	const [votes, setVotes] = useState(article.votes);
 
 	const handleUpvoteButton = e => {
+		setVotes(current => {
+			return Number(current) + Number(e.target.value);
+		});
+
 		api
 			.upvoteArticle(article.article_id, e.target.value)
 			.then(() => {
-				setVotes(current => {
-					return Number(current) + Number(e.target.value);
-				});
-
 				if (e.target.value == 1) {
 					setHasVoted(true);
 				} else {
