@@ -3,10 +3,12 @@ import { api } from '../../api';
 
 const FullArticle = ({ article }) => {
 	const [hasVoted, setHasVoted] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 	const [votes, setVotes] = useState(article.votes);
 
 	const handleUpvoteButton = e => {
 		setVotes(current => {
+			setDisabled(true);
 			return Number(current) + Number(e.target.value);
 		});
 
@@ -21,6 +23,9 @@ const FullArticle = ({ article }) => {
 			})
 			.catch(err => {
 				alert('Could not upvote at this time, try again later.');
+			})
+			.finally(() => {
+				setDisabled(false);
 			});
 	};
 
@@ -47,6 +52,7 @@ const FullArticle = ({ article }) => {
 				<h2>{article.title}</h2>
 
 				<div className='divider-small'></div>
+
 				<div className='author-date-upvote-container'>
 					<h4>Author: {article.author}</h4>
 
@@ -61,21 +67,13 @@ const FullArticle = ({ article }) => {
 
 					<div className='upvote-btn'>
 						<h5>votes: {votes}</h5>
-						{hasVoted ? (
-							<button
-								value={-1}
-								onClick={handleUpvoteButton}
-							>
-								Upvoted!
-							</button>
-						) : (
-							<button
-								value={1}
-								onClick={handleUpvoteButton}
-							>
-								Vote
-							</button>
-						)}
+						<button
+							onClick={handleUpvoteButton}
+							disabled={disabled}
+							value={hasVoted ? -1 : 1}
+						>
+							{hasVoted ? 'Upvoted!' : 'Vote'}
+						</button>
 					</div>
 				</div>
 
