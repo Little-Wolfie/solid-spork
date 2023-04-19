@@ -16,7 +16,14 @@ const fetchArticleById = async id => {
 	return results.data.article;
 };
 
+const fetchArticleCommentsById = async id => {
+	const results = await newsAPI.get(`/articles/${id}/comments`);
+
+	return results.data.comments;
+};
+
 export const api = {
 	fetchArticles,
 	fetchArticleById,
+	fetchArticleCommentsById,
 };
