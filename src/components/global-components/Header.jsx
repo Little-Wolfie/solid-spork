@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../context-components/User';
 
 const Header = ({ setIsSideBarOpen }) => {
-	const { signedInUser, setSignedInUser } = useContext(UserContext);
+	const { signedInUser } = useContext(UserContext);
 
 	return (
 		<header>
@@ -40,7 +40,7 @@ const Header = ({ setIsSideBarOpen }) => {
 			<section className='user-widget'>
 				<img
 					src={signedInUser.avatar_url}
-					alt='user profile picture'
+					alt='user profile'
 				/>
 				<p>{signedInUser.username}</p>
 			</section>

@@ -11,6 +11,24 @@ const ArticleComments = ({ articleId }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [hasSubmitted, setHasSubmitted] = useState(false);
 
+	const fetchComments = () => {
+		api
+			.fetchArticleCommentsById(articleId)
+			.then(res => {
+				setComments(res);
+				setIsLoading(false);
+			})
+			.catch(err => {
+				alert('Failed to load comments, try again later.');
+			});
+	};
+
+	const deleteComment = id => {
+		api.deleteCommentFromArticle(id).then(res => {
+			fetchComments();
+		});
+	};
+
 	const handleNewCommentSubmit = e => {
 		e.preventDefault();
 		setNewCommentInput('');
@@ -37,11 +55,9 @@ const ArticleComments = ({ articleId }) => {
 	};
 
 	useEffect(() => {
-		api.fetchArticleCommentsById(articleId).then(res => {
-			setComments(res);
-			setIsLoading(false);
-		});
-	}, [articleId]);
+		fetchComments();
+		// eslint-disable-next-line
+	}, []);
 
 	useEffect(() => {
 		api.getUserData().then(res => {
@@ -90,6 +106,7 @@ const ArticleComments = ({ articleId }) => {
 							<CommentCard
 								comment={comment}
 								userProfilePic={users[comment.author]}
+								deleteComment={deleteComment}
 							/>
 						</li>
 					))}
