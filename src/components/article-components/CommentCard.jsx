@@ -3,7 +3,7 @@ const CommentCard = ({ comment, userProfilePic }) => {
 		<article className='comment'>
 			<img
 				src={userProfilePic}
-				alt=''
+				alt='A user profile picture'
 			/>
 			<h4>{comment.author}</h4>
 			<h6>
