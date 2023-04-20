@@ -24,9 +24,11 @@ const ArticleComments = ({ articleId }) => {
 	};
 
 	const deleteComment = id => {
-		api.deleteCommentFromArticle(id).then(res => {
-			fetchComments();
+    setComments(current => {
+			return current.filter(comment => comment.comment_id !== id);
 		});
+
+		api.deleteCommentFromArticle(id);
 	};
 
 	const handleNewCommentSubmit = e => {
