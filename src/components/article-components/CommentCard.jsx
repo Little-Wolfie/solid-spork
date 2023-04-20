@@ -1,6 +1,10 @@
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, userProfilePic }) => {
 	return (
 		<article className='comment'>
+			<img
+				src={userProfilePic}
+				alt='A user profile picture'
+			/>
 			<h4>{comment.author}</h4>
 			<h6>
 				<span>

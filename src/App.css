@@ -57,9 +57,27 @@ color: rgb(255, 0, 21);
   border: 1px solid black;
 }
 .user-widget {
-  width: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 10rem;
+  height: 3rem;
+  background-color: rgb(187, 187, 255);
+  border: 1px solid black;
+  border-radius: 1.2rem;
+}
+.user-widget img {
+  align-self: center;
+  margin: 0 0.6rem 0 0.6rem;
+  width: 2rem;
   height: 2rem;
-  background-color: blue;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.user-widget p {
+  font-size: 0.8rem;
+  margin: 0 1rem 0 0;
 }
 
 /* - Side bar - */
@@ -157,7 +175,25 @@ color: rgb(255, 0, 21);
   /* full article */
   .article-content h2, .article-content h5, .article-content h4, .article-content p {
   font-size: 0.8em;
-}
+  }
+
+  /* user widget */
+  .user-widget {
+    background-color: white;
+    border: 0;
+  }
+  .user-widget p {
+    display: none;
+  }
+  .user-widget img {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 1rem;
+  }
+  .page-title {
+    margin-left: 7rem;
+  }
 }
 
 /* - Full Article - */
@@ -225,10 +261,12 @@ color: rgb(255, 0, 21);
 .new-comment textarea {
   display: block;
   margin: 1rem;
+  resize: none;
 }
 .comment-list {
   margin: 1.5rem auto 0 auto;
   max-width: 50rem;
+  list-style-type: none;
 }
 .comment {
   
@@ -246,4 +284,16 @@ color: rgb(255, 0, 21);
 }
 .new-comment, .comment-list, .comment {
   border: 1px solid black;
+}
+.comment img {
+  display: inline;
+  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.3rem 0.3rem 0rem 0.3rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.comment h4 {
+  display: inline;
 }
