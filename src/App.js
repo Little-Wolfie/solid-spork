@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './App.css';
-import { api } from './api';
 import Header from './components/global-components/Header';
 import SideBar from './components/global-components/SideBar';
 import { Route, Routes } from 'react-router-dom';
@@ -9,22 +8,10 @@ import Article from './components/page-components/Article';
 
 function App() {
 	const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-	const [user, setUser] = useState({});
-
-	//fake user, picks a random dummy user from db
-	useEffect(() => {
-		api.getUserData().then(res => {
-			const tempUser = res.data.users[Math.floor(Math.random() * 6)];
-			setUser(tempUser);
-		});
-	}, []);
 
 	return (
 		<div className='App'>
-			<Header
-				setIsSideBarOpen={setIsSideBarOpen}
-				user={user}
-			/>
+			<Header setIsSideBarOpen={setIsSideBarOpen} />
 			<SideBar
 				isSideBarOpen={isSideBarOpen}
 				setIsSideBarOpen={setIsSideBarOpen}
@@ -43,7 +30,7 @@ function App() {
 
 				<Route
 					path='/articles/:article_id'
-					element={<Article user={user} />}
+					element={<Article />}
 				/>
 			</Routes>
 		</div>

@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { api } from '../../api';
 import CommentCard from './CommentCard';
+import { UserContext } from '../context-components/User';
 
 const ArticleComments = ({ articleId }) => {
+	const { signedInUser, setSignedInUser } = useContext(UserContext);
+	const [users, setUsers] = useState({});
 	const [comments, setComments] = useState([]);
-  const [newCommentInput, setNewCommentInput] = useState('');
+	const [newCommentInput, setNewCommentInput] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 
 	const handleNewCommentSubmit = e => {
@@ -18,6 +21,17 @@ const ArticleComments = ({ articleId }) => {
 			setIsLoading(false);
 		});
 	}, [articleId]);
+
+	useEffect(() => {
+		api.getUserData().then(res => {
+			const userData = res.data.users.reduce((acc, curr) => {
+				acc[curr['username']] = curr['avatar_url'];
+				return acc;
+			}, {});
+
+			setUsers(userData);
+		});
+	}, []);
 
 	return (
 		<section className='comments-container'>
@@ -44,7 +58,10 @@ const ArticleComments = ({ articleId }) => {
 				<ol className='comment-list'>
 					{comments.map(comment => (
 						<li key={comment.comment_id}>
-							<CommentCard comment={comment} />
+							<CommentCard
+								comment={comment}
+								userProfilePic={users[comment.author]}
+							/>
 						</li>
 					))}
 				</ol>

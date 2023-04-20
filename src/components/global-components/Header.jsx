@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context-components/User';
 
-const Header = ({ setIsSideBarOpen, user }) => {
-	console.log('user:', user);
+const Header = ({ setIsSideBarOpen }) => {
+	const { signedInUser, setSignedInUser } = useContext(UserContext);
+
 	return (
 		<header>
 			<section className='side-bar-btn'>
@@ -36,10 +39,10 @@ const Header = ({ setIsSideBarOpen, user }) => {
 
 			<section className='user-widget'>
 				<img
-					src={user.avatar_url}
+					src={signedInUser.avatar_url}
 					alt='user profile picture'
 				/>
-				<p>{user.username}</p>
+				<p>{signedInUser.username}</p>
 			</section>
 		</header>
 	);

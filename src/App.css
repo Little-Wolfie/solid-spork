@@ -71,7 +71,7 @@ color: rgb(255, 0, 21);
   align-self: center;
   margin: 0 0.6rem 0 0.6rem;
   width: 2rem;
-  height: auto;
+  height: 2rem;
   border: 1px solid black;
   border-radius: 50%;
 }
@@ -187,6 +187,7 @@ color: rgb(255, 0, 21);
   }
   .user-widget img {
     width: 3rem;
+    height: 3rem;
     position: absolute;
     right: 1rem;
   }
@@ -264,6 +265,7 @@ color: rgb(255, 0, 21);
 .comment-list {
   margin: 1.5rem auto 0 auto;
   max-width: 50rem;
+  list-style-type: none;
 }
 .comment {
   
@@ -281,4 +283,15 @@ color: rgb(255, 0, 21);
 }
 .new-comment, .comment-list, .comment {
   border: 1px solid black;
+}
+.comment img {
+  display: inline;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.3rem 0.3rem 0rem 0.3rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.comment h4 {
+  display: inline;
 }
