@@ -261,6 +261,7 @@ color: rgb(255, 0, 21);
 .new-comment textarea {
   display: block;
   margin: 1rem;
+  resize: none;
 }
 .comment-list {
   margin: 1.5rem auto 0 auto;
