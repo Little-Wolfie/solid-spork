@@ -28,6 +28,9 @@ const ArticleComments = ({ articleId }) => {
 					return [res, ...current];
 				});
 			})
+			.catch(() => {
+				alert('Could not post comment, try again later.');
+			})
 			.finally(() => {
 				setHasSubmitted(false);
 			});
