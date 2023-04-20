@@ -4,15 +4,33 @@ import CommentCard from './CommentCard';
 import { UserContext } from '../context-components/User';
 
 const ArticleComments = ({ articleId }) => {
-	const { signedInUser, setSignedInUser } = useContext(UserContext);
+	const { signedInUser } = useContext(UserContext);
 	const [users, setUsers] = useState({});
 	const [comments, setComments] = useState([]);
 	const [newCommentInput, setNewCommentInput] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
+	const [hasSubmitted, setHasSubmitted] = useState(false);
 
 	const handleNewCommentSubmit = e => {
 		e.preventDefault();
-		console.log(e.target.children[1].value);
+		setNewCommentInput('');
+		setHasSubmitted(true);
+
+		const commentBody = e.target.children[1].value;
+
+		api
+			.postCommentToArticle(articleId, {
+				username: signedInUser.username,
+				body: commentBody,
+			})
+			.then(res => {
+				setComments(current => {
+					return [res, ...current];
+				});
+			})
+			.finally(() => {
+				setHasSubmitted(false);
+			});
 	};
 
 	useEffect(() => {
@@ -45,8 +63,16 @@ const ArticleComments = ({ articleId }) => {
 						rows='4'
 						value={newCommentInput}
 						onChange={e => setNewCommentInput(e.target.value)}
+						minLength='12'
+						maxLength='250'
+						required
 					></textarea>
-					<button type='submit'>Submit</button>
+					<button
+						type='submit'
+						disabled={hasSubmitted}
+					>
+						Submit
+					</button>
 				</form>
 			</div>
 

@@ -22,6 +22,11 @@ const fetchArticleCommentsById = async id => {
 	return results.data.comments;
 };
 
+const postCommentToArticle = async (id, comment) => {
+	const results = await newsAPI.post(`/articles/${id}/comments`, comment);
+	return results.data.comment;
+};
+
 const upvoteArticle = async (id, value) => {
 	return await newsAPI.patch(`/articles/${id}`, {
 		inc_votes: value,
@@ -38,4 +43,5 @@ export const api = {
 	fetchArticleCommentsById,
 	upvoteArticle,
 	getUserData,
+	postCommentToArticle,
 };
