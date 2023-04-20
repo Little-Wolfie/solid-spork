@@ -27,6 +27,10 @@ const postCommentToArticle = async (id, comment) => {
 	return results.data.comment;
 };
 
+const deleteCommentFromArticle = async id => {
+	await newsAPI.delete(`/comments/${id}`);
+};
+
 const upvoteArticle = async (id, value) => {
 	return await newsAPI.patch(`/articles/${id}`, {
 		inc_votes: value,
@@ -44,4 +48,5 @@ export const api = {
 	upvoteArticle,
 	getUserData,
 	postCommentToArticle,
+	deleteCommentFromArticle,
 };

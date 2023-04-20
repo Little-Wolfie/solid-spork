@@ -15,7 +15,7 @@ const FullArticle = ({ article }) => {
 		api
 			.upvoteArticle(article.article_id, e.target.value)
 			.then(() => {
-				if (e.target.value == 1) {
+				if (e.target.value === '1') {
 					setHasVoted(true);
 				} else {
 					setHasVoted(false);
