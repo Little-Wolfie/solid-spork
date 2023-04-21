@@ -18,7 +18,7 @@ const ArticleCard = ({ article }) => {
 						.split(' ')
 						.slice(1, 4)
 						.join(' ')}{' '}
-					- votes: {article.votes}
+					-- votes: {article.votes} -- comments: {article.comment_count}
 				</p>
 				<p>{article.body.slice(0, 150)}</p>
 				<button onClick={() => navigate(`/articles/${article.article_id}`)}>

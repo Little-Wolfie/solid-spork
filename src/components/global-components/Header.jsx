@@ -25,7 +25,7 @@ const Header = ({ setIsSideBarOpen }) => {
 
 			<Link
 				className='logo-link'
-				to='/'
+				to='/articles'
 			>
 				<section className='page-title'>
 					<h1>NC</h1>

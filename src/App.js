@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/global-components/Header';
 import SideBar from './components/global-components/SideBar';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './components/page-components/Home';
 import Article from './components/page-components/Article';
 
@@ -20,7 +20,12 @@ function App() {
 			<Routes>
 				<Route
 					path='/'
-					element={<Home />}
+					element={
+						<Navigate
+							to='/articles'
+							replace
+						/>
+					}
 				/>
 
 				<Route
@@ -31,6 +36,16 @@ function App() {
 				<Route
 					path='/articles/:article_id'
 					element={<Article />}
+				/>
+
+				<Route
+					path='*'
+					element={
+						<Navigate
+							to='/articles'
+							replace
+						/>
+					}
 				/>
 			</Routes>
 		</div>
