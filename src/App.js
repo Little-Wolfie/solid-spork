@@ -20,7 +20,12 @@ function App() {
 			<Routes>
 				<Route
 					path='/'
-					element={<Home />}
+					element={
+						<Navigate
+							to='/articles'
+							replace
+						/>
+					}
 				/>
 
 				<Route
