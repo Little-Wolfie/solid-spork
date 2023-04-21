@@ -8,10 +8,9 @@ const Sort = ({ sortArticles, setSearchParams }) => {
 		e.preventDefault();
 
 		setSearchParams(current => {
+			console.log('current search params:', current);
 			return { ...current, sort_by: sortValue, order_by: orderValue };
 		});
-
-		sortArticles({ sortValue, orderValue });
 	};
 
 	return (
@@ -28,6 +27,8 @@ const Sort = ({ sortArticles, setSearchParams }) => {
 						<option value='created_at'>Date</option>
 						<option value='votes'>Votes</option>
 						<option value='comment_count'>Comments</option>
+						<option value='title'>Title</option>
+						<option value='author'>Author</option>
 					</select>
 				</div>
 
