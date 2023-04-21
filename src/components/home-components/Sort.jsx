@@ -8,7 +8,6 @@ const Sort = ({ sortArticles, setSearchParams }) => {
 		e.preventDefault();
 
 		setSearchParams(current => {
-			console.log('current search params:', current);
 			return { ...current, sort_by: sortValue, order_by: orderValue };
 		});
 	};

@@ -10,16 +10,11 @@ const Home = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	useEffect(() => {
-		console.clear();
-
 		const sortParam = searchParams.get('sort_by') || 'created_at';
 		const orderParam = searchParams.get('order_by') || 'desc';
 		const sortString = `?sort_by=${sortParam}&order_by=${orderParam}`;
-		console.log('sortString:', sortString);
 
 		api.fetchArticles(sortString).then(res => {
-			console.log('res:', res);
-
 			setArticles(res);
 			setIsLoading(false);
 		});
