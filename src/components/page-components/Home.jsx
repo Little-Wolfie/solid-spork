@@ -24,7 +24,10 @@ const Home = () => {
 
 	return (
 		<main>
-			<Sort setSearchParams={setSearchParams} />
+			<Sort
+				setSearchParams={setSearchParams}
+				searchParams={searchParams}
+			/>
 			<ArticleContainer
 				articles={articles}
 				isLoading={isLoading}

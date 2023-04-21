@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const Sort = ({ sortArticles, setSearchParams }) => {
+const Sort = ({ setSearchParams, searchParams }) => {
 	const [sortValue, setSortValue] = useState('created_at');
 	const [orderValue, setOrderValue] = useState('desc');
 
@@ -11,6 +11,11 @@ const Sort = ({ sortArticles, setSearchParams }) => {
 			return { ...current, sort_by: sortValue, order_by: orderValue };
 		});
 	};
+
+	useEffect(() => {
+		setSortValue(searchParams.get('sort_by') || 'created_at');
+		setOrderValue(searchParams.get('order_by') || 'desc');
+	}, []);
 
 	return (
 		<div className='sort'>
