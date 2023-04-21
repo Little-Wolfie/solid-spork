@@ -4,8 +4,10 @@ const newsAPI = axios.create({
 	baseURL: 'https://nc-news-xd69.onrender.com/api',
 });
 
-const fetchArticles = async (sortQueryString = 'created_at') => {
-	const results = await newsAPI.get(`/articles?sort_by=${sortQueryString}`);
+const fetchArticles = async (
+	defaultSortString = '?sort_by=created_at&order_by=desc'
+) => {
+	const results = await newsAPI.get(`/articles${defaultSortString}`);
 
 	return results.data.articles;
 };

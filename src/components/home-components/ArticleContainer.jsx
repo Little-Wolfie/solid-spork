@@ -1,18 +1,6 @@
 import ArticleCard from './ArticleCard';
-import { api } from '../../api';
-import { useEffect, useState } from 'react';
 
-const ArticleContainer = () => {
-  const [isLoading, setIsLoading] = useState(true);
-	const [articles, setArticles] = useState([]);
-
-	useEffect(() => {
-		api.fetchArticles().then(res => {
-			setArticles(res);
-			setIsLoading(false);
-		});
-	}, []);
-
+const ArticleContainer = ({ articles, isLoading }) => {
 	return (
 		<div className='article-container'>
 			{isLoading ? (
