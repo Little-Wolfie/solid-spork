@@ -17,29 +17,36 @@ const Sort = ({ sortArticles, setSearchParams }) => {
 	return (
 		<div className='sort'>
 			<form onSubmit={handleSortFormSubmit}>
-				<label htmlFor='sort'>Sort by </label>
-				<select
-					name='sort'
-					id='sort'
-					value={sortValue}
-					onChange={e => setSortValue(e.target.value)}
-				>
-					<option value='created_at'>Date</option>
-					<option value='votes'>Votes</option>
-					<option value='comment_count'>Comments</option>
-				</select>
+				<div className='sorting-container'>
+					<label htmlFor='sort'>Sort by </label>
+					<select
+						name='sort'
+						id='sort'
+						value={sortValue}
+						onChange={e => setSortValue(e.target.value)}
+					>
+						<option value='created_at'>Date</option>
+						<option value='votes'>Votes</option>
+						<option value='comment_count'>Comments</option>
+					</select>
+				</div>
 
-				<label htmlFor='order'>Order by </label>
-				<select
-					name='order'
-					id='order'
-					value={orderValue}
-					onChange={e => setOrderValue(e.target.value)}
-				>
-					<option value='desc'>Desc</option>
-					<option value='asc'>Asc</option>
-				</select>
-				<button type='submit'>Apply</button>
+				<div className='sorting-container'>
+					<label htmlFor='order'>Order by </label>
+					<select
+						name='order'
+						id='order'
+						value={orderValue}
+						onChange={e => setOrderValue(e.target.value)}
+					>
+						<option value='desc'>Desc</option>
+						<option value='asc'>Asc</option>
+					</select>
+				</div>
+
+				<div className='sorting-container'>
+					<button type='submit'>Apply</button>
+				</div>
 			</form>
 		</div>
 	);

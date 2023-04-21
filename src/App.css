@@ -297,3 +297,17 @@ color: rgb(255, 0, 21);
 .comment h4 {
   display: inline;
 }
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem auto 0 auto;
+  width: 28rem;
+  height: 5rem;
+}
+.sorting-container {
+  display: inline;
+  margin: 0.5rem 0.5rem auto 0.5rem;
+}
